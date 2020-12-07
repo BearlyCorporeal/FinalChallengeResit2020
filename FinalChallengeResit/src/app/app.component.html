@@ -1,0 +1,48 @@
+<div [hidden]="isSignedin">
+  <div>
+    <h2>Sign In</h2>
+    <input type="text" #email>
+    <input type="text" #password>
+    <button (click)="OnSignin(email.value,password.value)">Sign in</button>
+  </div>
+  <h3>Sign up</h3>
+</div>
+
+<div [hidden]="isSignedin || submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="email">email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+ 
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+ 
+<div [hidden] = "isSignedin || !submitted">
+  <h4>You signed up successfully please wait for authorisation!</h4>
+  <button class="btn btn-success" (click)="newUser()">Add</button>
+</div>
+
+<hr>
+
+<div [hidden]="!isAuth" class="container-fluid">
+  <button (click)="OnSignout()">Sign out</button>
+  <nav>
+    <a routerLink="fixtures" class="btn btn-primary active" role="button" routerLinkActive="active">fixtures </a>
+    <a routerLink="addfixture" class="btn btn-primary active" role="button" routerLinkActive="active">addfixture </a>
+    <a routerLink="unautherisedUsers" class="btn btn-primary active" role="button" routerLinkActive="active">unautherisedUsers </a>
+    <a routerLink="pastFixtures" class="btn btn-primary active" role="button" routerLinkActive="active">past fixtures</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+<div [hidden]="isAuth || !isSignedin">
+  <h2>your account has not been autherised yet please wait</h2>
+  <button (click)="OnSignout()">Sign out</button>
+</div>

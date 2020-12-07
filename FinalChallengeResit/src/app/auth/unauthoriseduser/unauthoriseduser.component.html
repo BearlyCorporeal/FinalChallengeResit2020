@@ -1,0 +1,12 @@
+<div *ngIf="!user.auth">
+    <div>
+      <label>email: </label> {{user.email}}
+    </div>
+    <div>
+      <label>authorised: </label> {{user.auth}}
+    </div>
+    <span class="button is-small btn-primary" (click)='updateUser(true)'>authorise</span>   
+    <span class="button is-small btn-danger" (click)='deleteUser()'>deny</span>
+
+    <hr/>
+</div>

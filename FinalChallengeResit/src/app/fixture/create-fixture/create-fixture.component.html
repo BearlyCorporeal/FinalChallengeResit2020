@@ -1,0 +1,32 @@
+<h3>Create Game</h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="venue">venue</label>
+      <input type="text" class="form-control" id="location" required [(ngModel)]="fixture.location" name="location">
+    </div>
+ 
+    <div class="form-group">
+      <label for="date">date</label>
+      <input type="date" class="form-control" id="date" required [(ngModel)]="fixture.date" name="date">
+    </div>
+
+    <div class="form-group">
+      <label for="time">time</label>
+      <input type="time" class="form-control" id="time" required [(ngModel)]="fixture.time" name="time">
+    </div>
+
+    <div class="form-group">
+      <label for="courtnum">courtnum</label>
+      <input type="number" class="form-control" id="courtnum" required [(ngModel)]="fixture.courtnum" name="courtnum">
+    </div>
+ 
+ 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+ 
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newFixture()">Add</button>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="!fixture.played">
+    <div>
+      <label>venue: </label> {{fixture.location}}
+    </div>
+    <div>
+      <label>courtnum: </label> {{fixture.courtnum}}
+    </div>
+    <div>
+      <label>date: </label> {{fixture.date}}
+    </div>
+    <div>
+      <label>time: </label> {{fixture.time}}
+    </div>
+    <div>
+      <label>played: </label> {{fixture.played}}
+    </div>
+    <label>how much did it cost $</label>
+    <input type="number" #cost>
+    <label>who payed: </label>
+    <input type="text" #person>
+    <span class="button is-small btn-primary" (click)='updateFixture(true,cost.value,person.value)'>played</span>   
+    <span class="button is-small btn-danger" (click)='deleteFixture()'>forfeit</span>
+
+    <hr/>
+</div>
